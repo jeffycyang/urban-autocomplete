@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, callback) {
             callback();
         };
         xhttp.open(method, request.url, true);
-        xhttp.send();
+        xhttp.send(request.data);
         return true;
     }
 });
