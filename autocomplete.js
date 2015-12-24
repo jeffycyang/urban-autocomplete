@@ -19,13 +19,24 @@ $(textInputs).addClass('awesomplete');
 
 console.log(textInputs);
 
-var awesomplete = new Awesomplete(textInputs[0], {
-  minChars: 1,
-  autoFirst: true,
-  filter: function(){
-    return true;
-  }
-});
+var awesomplete = [];
+for(var i=0;i<textInputs.length;i++){
+    awesomplete[i] = new Awesomplete(textInputs[i], {
+      minChars: 1,
+      autoFirst: true,
+      filter: function(){
+        return true;
+      }
+    });
+}
+
+// var awesomplete = new Awesomplete(textInputs[0], {
+//   minChars: 1,
+//   autoFirst: true,
+//   filter: function(){
+//     return true;
+//   }
+// });
 
 $(textInputs).on("keyup", function() {
     chrome.runtime.sendMessage({
@@ -39,6 +50,9 @@ $(textInputs).on("keyup", function() {
         $.each(JSON.parse(responseText), function(key, value) {
             list.push(value);
         });
-        awesomplete.list = list;
+        // awesomplete.list = list;
+        for(var j=0;j<awesomplete.length;j++){
+            awesomplete[j].list = list;
+        }
     });
 });
