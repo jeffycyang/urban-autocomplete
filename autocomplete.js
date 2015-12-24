@@ -25,6 +25,7 @@ var awesomplete = new Awesomplete(textInputs[0], {
 });
 
 $(textInputs).on("keyup", function() {
+    // THIS DOESN'T WORK BECAUSE OF HTTP on HTTPS SITES
     // $.ajax({
     //   url: 'http://api.urbandictionary.com/v0/define?term=' + this.value,
     //   type: 'GET',
@@ -37,6 +38,20 @@ $(textInputs).on("keyup", function() {
     //     list.push(value.tags);
     //   });
     //   awesomplete.list = list;
+    // });
+
+    // THIS WORKS BUT ITS NOT THE API I WANT TO PING
+    // $.ajax({
+    //     url: 'https://restcountries.eu/rest/v1/name/' + this.value,
+    //     type: 'GET',
+    //     dataType: 'json'
+    // })
+    // .success(function(data) {
+    //     var list = [];
+    //     $.each(data, function(key, value) {
+    //       list.push(value.name);
+    //     });
+    //     awesomplete.list = list;
     // });
 
     chrome.runtime.sendMessage({
