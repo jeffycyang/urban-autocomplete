@@ -6,7 +6,11 @@
     {
 	  "matches": ["<all_urls>"],
       "css": ["awesomplete.css"],
-      "js": ["jquery-2.1.4.min.js", "autocomplete.js", "awesomplete.js"]
+      "js": ["jquery-2.1.4.min.js", "awesomplete.js", "autocomplete.js"]
     }
-  ]
+  ],
+  "background": {
+  	"scripts": ["background.js"],
+  	"persistent": false
+  }
 }
