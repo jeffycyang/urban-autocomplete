@@ -5,9 +5,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, callback) {
         xhttp.onload = function() {
             callback(xhttp.responseText);
         };
-        // xhttp.onerror = function() {
-        //     callback();
-        // };
+        xhttp.onerror = function() {
+            callback();
+        };
         xhttp.open(method, request.url, true);
         xhttp.send(request.data);
         return true;
