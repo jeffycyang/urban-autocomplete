@@ -1,20 +1,15 @@
 var textInputs;
 
-if (document.querySelectorAll)
-{
+if (document.querySelectorAll) {
     textInputs = document.querySelectorAll('input[type=text]');
-}
-else
-{
+} else {
     textInputs = [];
     var unfiltered = document.getElementsByTagName('input'),
         i = unfiltered.length,
         input;
-    while(i--)
-    {
+    while(i--) {
         input = unfiltered[i];
-        if (!input.type || input.type === 'text')
-        {
+        if (!input.type || input.type === 'text') {
             textInputs.push(input);
         }
     }
@@ -22,12 +17,14 @@ else
 
 $(textInputs).addClass('awesomplete');
 
+console.log(textInputs);
+
 var awesomplete = new Awesomplete(textInputs[0], {
   minChars: 1,
   autoFirst: true
 });
 
-$(textInputs).on("keyup", function(){
+$(textInputs).on("keyup", function() {
     // $.ajax({
     //   url: 'http://api.urbandictionary.com/v0/define?term=' + this.value,
     //   type: 'GET',
@@ -41,6 +38,7 @@ $(textInputs).on("keyup", function(){
     //   });
     //   awesomplete.list = list;
     // });
+
     chrome.runtime.sendMessage({
         method: 'GET',
         action: 'xhttp',
@@ -52,5 +50,6 @@ $(textInputs).on("keyup", function(){
             list.push(value);
         });
         awesomplete.list = list;
-    });
+        console.log(awesomplete);
+    });    
 });
