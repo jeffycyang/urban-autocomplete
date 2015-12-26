@@ -30,14 +30,6 @@ for (var i=0 ; i < textInputs.length ; i++){
     });
 }
 
-// var awesomplete = new Awesomplete(textInputs[0], {
-//   minChars: 1,
-//   autoFirst: true,
-//   filter: function(){
-//     return true;
-//   }
-// });
-
 $(textInputs).on("keypress", function() {
     chrome.runtime.sendMessage({
         method: 'GET',
@@ -50,7 +42,6 @@ $(textInputs).on("keypress", function() {
         $.each(JSON.parse(responseText), function(key, value) {
             list.push(value);
         });
-        // awesomplete.list = list;
         for (var j=0 ; j < awesomplete.length ; j++) {
             awesomplete[j].list = list;
         }
