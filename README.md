@@ -9,4 +9,4 @@
 
 *Credit to Lea Verou for her [Awesomplete](https://leaverou.github.io/awesomplete/) widget*
 
-*Credit to [mhmiles](https://github.com/mhmiles) for his "30%" help
+*Credit to [mhmiles](https://github.com/mhmiles) for his "30%" help*
