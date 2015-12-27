@@ -1,6 +1,9 @@
 # Urban Autocomplete
 - Chrome extension adds autocomplete suggestions from Urban Dictionary API
 
+## To-Do
+- remove jQuery dependency
+
 ## Known Issues
 - Has issues running on pages that already have an autocomplete feature (i.e. google, youtube, etc.)
 
